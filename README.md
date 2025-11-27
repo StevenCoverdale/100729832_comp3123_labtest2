@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# React Weather App — COMP3123 Lab Test 
+Steven Coverdale 100729832
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive weather application built with React for the COMP3123 Lab Test.  
+The app fetches real-time weather data from the OpenWeatherMap API and displays it using a clean, user‑friendly UI designed directly around the API response.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Search for any city and view real-time weather data  
+- Displays:
+  - Weather condition + icon
+  - Temperature (current, high, low)
+  - Humidity
+  - Wind speed
+  - Pressure
+  - Simulated predictability
+- Designed around the actual API response structure  
+- Uses React state, effects, and props  
+- Clean UI with icons, images, themes, and Google Fonts  
+- Includes Postman API test screenshots  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup Instructions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. Clone the repository
 
-### `npm test`
+git clone https://github.com/StevenCoverdale/100729832_comp3123_labtest2.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Install dependencies
 
-### `npm run build`
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Add your API key
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Create a `.env` file in the project root:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+REACT_APP_WEATHER_KEY=17b19915a5efeef5de3b2a2305067d47
 
-### `npm run eject`
+### 4. Start the development server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🌐 API Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This project uses the **OpenWeatherMap Current Weather API**:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric
 
-## Learn More
+### Data fields used in the UI:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- name — City name  
+- sys.country — Country code  
+- weather[0].description — Weather condition  
+- weather[0].icon — Weather icon  
+- main.temp — Current temperature  
+- main.temp_max — High temperature  
+- main.temp_min — Low temperature  
+- main.humidity — Humidity  
+- main.pressure — Pressure  
+- wind.speed — Wind speed  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Predictability is simulated because OpenWeatherMap does not provide this field.
 
-### Code Splitting
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### App
 
-### Analyzing the Bundle Size
+<img width="1211" height="1185" alt="image" src="https://github.com/user-attachments/assets/64c7e3cb-0191-47f4-bb4e-831ee6c647a9" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img width="1218" height="1184" alt="image" src="https://github.com/user-attachments/assets/2f1331e3-5dee-4f1c-b5fd-a900e553d402" />
 
-### Making a Progressive Web App
+### Postman API Response
+GET: https://api.openweathermap.org/data/2.5/weather?q=Toronto&appid=17b19915a5efeef5de3b2a2305067d47&units=metric
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img width="1359" height="698" alt="image" src="https://github.com/user-attachments/assets/1cb0b2c5-61cc-4e86-9200-759e3833f39d" />
 
-### Advanced Configuration
+<img width="1305" height="1657" alt="image" src="https://github.com/user-attachments/assets/70ed97bc-1218-4840-be06-2a65a2ed08b2" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Notes & Assumptions
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Weather icons are sourced directly from OpenWeatherMap using the icon code from the API response.
+- Predictability is randomized between 80–100% because the API does not include this metric.
+- The UI is intentionally designed around the API response structure.
+- Google Font “Inter” is used for clean typography.
+- Background image is a free seasonal image from Unsplash.
+- The app demonstrates:
+  - useState for managing input and API data  
+  - useEffect for fetching data when the city changes  
+  - Props for passing data to child components  
+- No backend server is required — the app communicates directly with the OpenWeatherMap API.
