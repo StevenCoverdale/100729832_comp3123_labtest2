@@ -2,7 +2,7 @@ const WeatherCard = ({ weather }) => {
   if (!weather || !weather.sys || !weather.weather || !weather.main) return null;
 
   return (
-    <div>
+    <div className="weather-card">
       <h2>{weather.name}, {weather.sys.country}</h2>
       <p>{weather.weather[0].description}</p>
       <p>{weather.main.temp} °C</p>
