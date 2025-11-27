@@ -1,3 +1,4 @@
+import './App.css';
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import WeatherCard from './components/WeatherCard';
@@ -36,14 +37,17 @@ const App = () => {
 
 
   return (
-    <div className='app-container'>
-      <SearchBar city={city} setCity={setCity} />
+    <div className="app-container">
+  <div className="weather-wrapper">
 
-      {loading && <p>Loading...</p>}
-      {error && <p className="error">{error}</p>}
+    <SearchBar city={city} setCity={setCity} />
 
-      <WeatherCard weather={weather} />
-    </div>
+    {loading && <p>Loading...</p>}
+    {error && <p className="error">{error}</p>}
+
+    <WeatherCard weather={weather} />
+  </div>
+</div>
   );
 };
 

@@ -1,3 +1,13 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #dbeafe, #f0f4f8);
+  color: #333;
+  background: url('https://images.unsplash.com/photo-1501973801540-537f08ccae7b') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
 .app-container {
   text-align: center;
   padding: 2rem;
@@ -11,33 +21,51 @@
   margin-bottom: 1rem;
 }
 
-.weather-card {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1.5rem;
-  max-width: 320px;
-  margin: 2rem auto;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif;
-}
-
-.weather-card h2 {
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-}
-
-.weather-card img {
-  display: block;
-  margin: 0.5rem auto;
-}
-
-.weather-details p {
-  margin: 0.3rem 0;
-  font-size: 0.95rem;
-}
-
 .error {
   color: red;
   font-weight: bold;
+}
+
+.weather-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 360px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.weather-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.weather-icon {
+  display: block;
+  margin: 0.5rem auto;
+  width: 80px;
+  height: 80px;
+  border: #333 1px solid;
+}
+
+.description {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.weather-details p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+
+.weather-wrapper {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
